@@ -15,7 +15,7 @@ const Counter = () => {
   };
 
   const increaseHandler = () => {
-    dispatch ({ type: 'increase', amount: 5 }); // we can add a "payload" to our action object (Store action). We hardcode a 5 but this is usually set to some user input.
+    dispatch ({ type: 'increase', amount: 10 }); // we can add a "payload" to our action object (Store action). We hardcode a 10 but this is usually set to some user input.
   };
 
   const decrementHandler = () => {
@@ -32,7 +32,7 @@ const Counter = () => {
       { showCounter && <div className={classes.value}>{counter}</div> }
       <div>
         <button onClick={incrementHandler}>Increment</button>
-        <button onClick={increaseHandler}>Increase by 5</button>
+        <button onClick={increaseHandler}>Increase by 10</button>
         <button onClick={decrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
