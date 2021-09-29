@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import classes from './Counter.module.css';
+import { counterActions } from '../store/index';
 // import { Component } from 'react'; // This is for Class-Based Component Version
 // import { connect } from 'react-redux // This is also for Class-Based Component
 
@@ -11,19 +12,19 @@ const Counter = () => {
   const dispatch = useDispatch(); 
 
   const incrementHandler = () => {
-    dispatch({ type: 'increment' });
+    dispatch(counterActions.increment()); // With Redux toolkit, we have automation for creating our action method / object and can just invoke the individual action that we need 
   };
 
   const increaseHandler = () => {
-    dispatch ({ type: 'increase', amount: 10 }); // we can add a "payload" to our action object (Store action). We hardcode a 10 but this is usually set to some user input.
+    dispatch (counterActions.increase(10)); // we can pass our payload / amount as an argument when invoking our Redux Toolkit automated action { type: SOME_UNIQUE_IDENTIFIER, payload: 10 } --> payload is the default toolkit name
   };
 
   const decrementHandler = () => {
-    dispatch({ type: 'decrement'});
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: 'toggle'}); 
+    dispatch(counterActions.toggleCounter()); 
   };
 
   return (
