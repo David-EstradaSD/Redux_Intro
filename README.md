@@ -5,7 +5,8 @@ I worked on this sample app while teaching myself _Redux_ and React .
 
 ### Technologies
 * React, Redux, JavaScript
-* Custom React Hooks
+* Data Store
+* Custom React Hooks (_useSelector, useDispatch_)
 * OOP fundamentals:
   * Inheritance
   * Re-usable components
