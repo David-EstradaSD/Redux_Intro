@@ -1,14 +1,14 @@
 // import { createStore } from "redux";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { counter: 0, showCounter: true };
+const initialCounterState = { counter: 0, showCounter: true, isAuthenticated: false };
 
-// ------ This slice reducer is using Redux Toolkit -------
+// ------ These next 2 slices and reducer is using Redux Toolkit -------
 
 const counterSlice = createSlice({
   name: 'counter',
-  initialState,
-  reducers: { // reducers is a map of all 
+  initialState: initialCounterState,
+  reducers: {
     increment(state) { 
       state.counter++;
     },
@@ -24,7 +24,25 @@ const counterSlice = createSlice({
   }
 });
 
-// -------- This reducer is WITHOUT Redux Toolkit -------
+
+const initialAuthState = {
+  isAuthenticated: false
+};
+
+const authSlice = createSlice({
+  name: 'authentication',
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    }
+  }
+});
+
+// -------- This reducer is WITHOUT Redux Toolkit (more boiler plate)-------
 
 // const counterReducer = (state = initialState, action) => {
 //   if (action.type === "increment") {
@@ -61,11 +79,11 @@ const counterSlice = createSlice({
 
 // const store = createStore(counterReducer);
 
-
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
 });
 
 export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
 
 export default store;
