@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import classes from './Counter.module.css';
-import { counterActions } from '../store/index';
+import { counterActions } from '../store/counter';
 // import { Component } from 'react'; // This is for Class-Based Component Version
 // import { connect } from 'react-redux // This is also for Class-Based Component
 
 // -------- Functional Component Version ---------
 
 const Counter = () => {
-  const counter = useSelector(state => state.counter);
-  const showCounter = useSelector(state => state.showCounter);
+  const counter = useSelector(state => state.counter.counter); // reading data from the store, since we have multiple reducers packed into 1 reducer, we have to invoke "counter" to represent the reducer object in our exporting store and then again to represent the counter variable name in our initialState declaration (of our store)
+  const showCounter = useSelector(state => state.counter.showCounter);
   const dispatch = useDispatch(); 
 
   const incrementHandler = () => {
