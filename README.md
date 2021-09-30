@@ -8,9 +8,7 @@ I worked on this sample app while teaching myself _Redux_ and React .
 * Data Store
 * Redux Toolkit
 * Custom React Hooks (_useSelector, useDispatch_)
-* OOP fundamentals:
-  * Inheritance
-  * Re-usable components
+* Re-usable components
 
 ### How to Run
 This app is currently only ran locally. Just do the usual steps:
